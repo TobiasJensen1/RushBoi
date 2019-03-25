@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         run();
         jump();
+        gravityScale();
     }
 
 
@@ -51,7 +52,21 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.transform.tag == "Ground")
         {
+            
             isGrounded = true;
+        }
+      
+    }
+    void gravityScale()
+    {
+
+        if (isGrounded && transform.position.y < -1)
+        {
+            rb.gravityScale = 1;
+        }
+        else
+        {
+            rb.gravityScale = 40;
         }
     }
 
