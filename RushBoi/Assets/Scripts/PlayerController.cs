@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && isGrounded)
         {
+            a.Play("Jumping");
             transform.DOMoveY(transform.position.y + jumpHeight, 0.4f);
             isGrounded = false;
         }
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.transform.tag == "Ground")
         {
-            
+            a.Play("Run");
             isGrounded = true;
         }
       

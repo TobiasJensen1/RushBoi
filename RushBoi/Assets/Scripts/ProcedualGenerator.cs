@@ -39,7 +39,7 @@ public class ProcedualGenerator : MonoBehaviour
 
         //chunkPos = objectToPlace;
 
-
+            
         if (collision.transform.tag == "SpawnCollider")
         {
 
