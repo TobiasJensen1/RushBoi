@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+
 public class Monster_Movement : MonoBehaviour
 {
+
+    public GameObject Player;
+
     float first_pos;
     Tween tween;
     float moveHorizontal;
@@ -22,12 +27,24 @@ public class Monster_Movement : MonoBehaviour
     private void FixedUpdate()
     {
         run();
+        KillPlayer();
+
+        print(Player.transform.position.x);
+        print(transform.position.x);
     }
 
     void run()
     {
         movement = new Vector2(moveHorizontal + speed, 0);
         rb.velocity = movement;
+    }
+
+    void KillPlayer()
+    {
+        if (Player.transform.position.x < transform.position.x)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 
     IEnumerator fly()
