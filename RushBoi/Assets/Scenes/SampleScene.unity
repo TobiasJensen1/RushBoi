@@ -1064,8 +1064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1089230080}
-  scoreText: {fileID: 0}
-  distanceText: {fileID: 0}
+  scoreText: {fileID: 1139612130}
+  distanceText: {fileID: 1681134756}
   speed: 9
 --- !u!1 &1391396156
 GameObject:
