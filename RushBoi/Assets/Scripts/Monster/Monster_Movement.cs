@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Monster_Movement : MonoBehaviour
 {
 
     public GameObject Player;
+    public Text scoreText;
+    public Text distanceText;
 
+    float distance = 0;
+    float score = 0;
     float first_pos;
     Tween tween;
     float moveHorizontal;
@@ -28,6 +33,8 @@ public class Monster_Movement : MonoBehaviour
     {
         run();
         KillPlayer();
+        addScore();
+        distanceToEnemy();
 
         print(Player.transform.position.x);
         print(transform.position.x);
@@ -41,10 +48,25 @@ public class Monster_Movement : MonoBehaviour
 
     void KillPlayer()
     {
-        if (Player.transform.position.x < transform.position.x)
+        if (Player.transform.position.x < transform.position.x || Player.transform.position.y < -5)
         {
             SceneManager.LoadScene("SampleScene");
         }
+        
+    }
+
+    void addScore()
+    {
+        score++;
+        scoreText.text = "Score: " + score;
+    }
+
+    void distanceToEnemy()
+    {
+        distance = Mathf.Ceil(Player.transform.position.x - transform.position.x);
+
+
+        distanceText.text = "Distance: " + distance +"M";
     }
 
     IEnumerator fly()
